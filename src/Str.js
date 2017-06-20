@@ -5,17 +5,13 @@ export class Str {
     this.str = str || '';
   }
 
-  get length () {
-    return this.str.length;
-  }
-
   /**
    * Capitalize all words in a string.
    *
    * @return  {String}
    */
   capitalize () {
-    return this.getValue(this.str.replace(/(?:^|\s)\S/g, s => s.toUpperCase()));
+    return this.setValue(this.str.replace(/(?:^|\s)\S/g, s => s.toUpperCase()));
   }
 
   /**
@@ -24,7 +20,7 @@ export class Str {
    * @return  {String}
    */
   ucfirst () {
-    return this.getValue(this.str.charAt(0).toUpperCase() + this.str.slice(1));
+    return this.setValue(this.str.charAt(0).toUpperCase() + this.str.slice(1));
   }
 
   /**
@@ -33,7 +29,7 @@ export class Str {
    * @return  {String}
    */
   lcfirst () {
-    return this.getValue(this.str.charAt(0).toLowerCase() + this.str.slice(1));
+    return this.setValue(this.str.charAt(0).toLowerCase() + this.str.slice(1));
   }
 
   /**
@@ -57,7 +53,7 @@ export class Str {
    * @return  {String}
    */
   limit (limit = 100, end = '…') {
-    return this.getValue(this.str.substring(0, limit) + (this.str.length > limit ? end : ''));
+    return this.setValue(this.str.substring(0, limit) + (this.str.length > limit ? end : ''));
   }
 
   /**
@@ -74,7 +70,7 @@ export class Str {
       str += (r < 0.1 ? Math.floor(r * 100) : String.fromCharCode(Math.floor(r * 26) + (r > 0.5 ? 97 : 65)));
     }
 
-    return this.getValue(str);
+    return this.setValue(str);
   }
 
   /**
@@ -125,7 +121,7 @@ export class Str {
    * @return  {String}
    */
   strip () {
-    return this.getValue(this.str.replace(/\s+/g, ''));
+    return this.setValue(this.str.replace(/\s+/g, ''));
   }
 
   /**
@@ -157,7 +153,7 @@ export class Str {
    */
   snake (delimeter = '_') {
     if (! this.isLowerCase()) {
-      return this.getValue(
+      return this.setValue(
         new Str(this.str.replace(/([A-Z])/g, `${delimeter}$1`).toLowerCase()).strip()
       );
     }
@@ -165,12 +161,8 @@ export class Str {
     return this;
   }
 
-  getValue (val) {
-    if (val instanceof Str) {
-      val = val.get();
-    }
-
-    this.str = val;
+  setValue (val) {
+    this.str = val instanceof Str ? val.get() : val;
 
     return this;
   }
@@ -181,6 +173,10 @@ export class Str {
 
   get () {
     return this.toString();
+  }
+
+  get length () {
+    return this.str.length;
   }
 
 }
