@@ -1,4 +1,3 @@
-
 export class Str {
 
   constructor (str) {
@@ -48,7 +47,7 @@ export class Str {
    * Limit a string to a given length with a suffix.
    *
    * @param   {Number}  [limit=100]  The limit
-   * @param   {String}  [end=...]    The suffix
+   * @param   {String}  [end=…]    The suffix
    *
    * @return  {String}
    */
@@ -153,12 +152,19 @@ export class Str {
    */
   snake (delimeter = '_') {
     if (! this.isLowerCase()) {
-      return this.setValue(
-        new Str(this.str.replace(/([A-Z])/g, `${delimeter}$1`).toLowerCase()).strip()
-      );
+      return new Str(this.str.replace(/([A-Z])/g, `${delimeter}$1`).toLowerCase()).strip();
     }
 
     return this;
+  }
+
+  /**
+   * Convert a string to kebab case.
+   *
+   * @return  {String}
+   */
+  kebab () {
+    return this.snake('-');
   }
 
   setValue (val) {
@@ -180,5 +186,3 @@ export class Str {
   }
 
 }
-
-export const str = (s) => new Str(s);

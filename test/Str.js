@@ -2,24 +2,24 @@ import test from 'ava';
 import { str } from '../src';
 
 test('it should captialize all words in a string', t => {
-	t.is(str('foo bar baz!').capitalize().get(), 'Foo Bar Baz!');
-	t.is(str('lorem ipsum dolor sit ameT').capitalize().get(), 'Lorem Ipsum Dolor Sit AmeT');
+  t.is(str('foo bar baz!').capitalize().get(), 'Foo Bar Baz!');
+  t.is(str('lorem ipsum dolor sit ameT').capitalize().get(), 'Lorem Ipsum Dolor Sit AmeT');
 });
 
 test('it should captialize the first letter in a string', t => {
-	t.is(str('foo bar baz!').ucfirst().get(), 'Foo bar baz!');
-	t.is(str('foobarbaz').ucfirst().get(), 'Foobarbaz');
+  t.is(str('foo bar baz!').ucfirst().get(), 'Foo bar baz!');
+  t.is(str('foobarbaz').ucfirst().get(), 'Foobarbaz');
 });
 
 test('it should lower case the first letter in a string', t => {
-	t.is(str('Foo bar baz!').lcfirst().get(), 'foo bar baz!');
-	t.is(str('FooBarBaz').lcfirst().get(), 'fooBarBaz');
+  t.is(str('Foo bar baz!').lcfirst().get(), 'foo bar baz!');
+  t.is(str('FooBarBaz').lcfirst().get(), 'fooBarBaz');
 });
 
 test('it should determine whether a string contains another string', t => {
   t.true(str('foobarbaz').contains('bar'));
   t.false(str('foobarbaz').contains('bob'));
-	t.false(str('foobarbaz').contains('foo', 2));
+  t.false(str('foobarbaz').contains('foo', 2));
 });
 
 test('it should limit a string', t => {
@@ -31,7 +31,7 @@ test('it should limit a string', t => {
 test('it should generate a random string', t => {
   t.true(typeof str().random().get() === 'string');
   t.is(str().random(16).length, 16);
-	t.is(str().random().length, 32);
+  t.is(str().random().length, 32);
 });
 
 test('it should check if a string starts with a string', t => {
@@ -43,17 +43,17 @@ test('it should check if a string starts with a string', t => {
 test('it should check if a string ends with a string', t => {
   t.true(str('Lorem ipsum dolor sit amet').endsWith('amet'));
   t.false(str('Lorem ipsum dolor sit amet').endsWith('ipsum'));
-	t.true(str('Lorem ipsum dolor sit amet').endsWith('ipsum', 11));
+  t.true(str('Lorem ipsum dolor sit amet').endsWith('ipsum', 11));
 });
 
 test('it should check if a string is all lowercase', t => {
   t.false(str('Lorem ipsum dolor sit amet').isLowerCase());
-	t.true(str('lorem ipsum dolor sit amet').isLowerCase());
+  t.true(str('lorem ipsum dolor sit amet').isLowerCase());
 });
 
 test('it should check if a string is all uppercase', t => {
   t.false(str('LOREM ipsum Dolor sit amet').isUpperCase());
-	t.true(str('LOREM IPSUM').isUpperCase());
+  t.true(str('LOREM IPSUM').isUpperCase());
 });
 
 test('it should strip all whitespace from a string', t => {
@@ -76,9 +76,8 @@ test('it should convert a string into camel case', t => {
   t.is(str('tymonDesigns').camel().get(), 'tymonDesigns');
 });
 
-test('it should convert a string into snake case', t => {
-  t.is(str(' chuckHerInTheUte ').snake().get(), 'chuck_her_in_the_ute');
-  t.is(str('chuckHerInTheUTE').snake().get(), 'chuck_her_in_the_u_t_e');
-	t.is(str('chuckHerInTheUTE').snake('^').get(), 'chuck^her^in^the^u^t^e');
-  t.is(str('chuckherintheute').snake().get(), 'chuckherintheute');
+test('it should convert a string into kebab case', t => {
+  t.is(str(' chuckHerInTheUte ').kebab().get(), 'chuck-her-in-the-ute');
+  t.is(str('chuckHerInTheUTE').kebab().get(), 'chuck-her-in-the-u-t-e');
+  t.is(str('chuckherintheute').kebab().get(), 'chuckherintheute');
 });
