@@ -1,5 +1,12 @@
 export class Str {
 
+  /**
+   * Create the Str instance
+   *
+   * @param  {Str} str
+   *
+   * @return {void}
+   */
   constructor (str) {
     this.str = str || '';
   }
@@ -171,22 +178,43 @@ export class Str {
     return this.snake('-');
   }
 
+  /**
+   * Set the string value.
+   *
+   * @param   {String}  val
+   *
+   * @return  {String}
+   */
   setValue (val) {
     this.str = val instanceof Str ? val.get() : val;
 
     return this;
   }
 
-  toString () {
-    return this.str;
-  }
-
+  /**
+   * Get the string value.
+   *
+   * @return {String}
+   */
   get () {
     return this.toString();
   }
 
+  /**
+   * Get the string value.
+   *
+   * @return {String}
+   */
+  toString () {
+    return this.str;
+  }
+
+  /**
+   * Get the string length property.
+   *
+   * @return {Integer}
+   */
   get length () {
     return this.str.length;
   }
-
 }

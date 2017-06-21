@@ -1,11 +1,6 @@
 import test from 'ava';
 import { str } from '../src';
 
-test('it should convert a string into title case', t => {
-  t.is(str('foo bar baz!').title().get(), 'Foo Bar Baz!');
-  t.is(str('lorem ipsum DoloR sit ameT').title().get(), 'Lorem Ipsum Dolor Sit Amet');
-});
-
 test('it should captialize the first letter in a string', t => {
   t.is(str('foo bar baz!').ucfirst().get(), 'Foo bar baz!');
   t.is(str('foobarbaz').ucfirst().get(), 'Foobarbaz');
@@ -58,6 +53,11 @@ test('it should check if a string is all uppercase', t => {
 
 test('it should strip all whitespace from a string', t => {
   t.is(str('Lorem ipsum dolor sit amet').strip().get(), 'Loremipsumdolorsitamet');
+});
+
+test('it should convert a string into title case', t => {
+  t.is(str('foo bar baz!').title().get(), 'Foo Bar Baz!');
+  t.is(str('lorem ipsum DoloR sit ameT').title().get(), 'Lorem Ipsum Dolor Sit Amet');
 });
 
 test('it should convert a string into studly case', t => {
