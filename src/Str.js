@@ -14,7 +14,7 @@ export class Str {
   /**
    * Capitalize the first character in a string.
    *
-   * @return  {String}
+   * @return  {Str}
    */
   ucfirst () {
     return this.setValue(this.str.charAt(0).toUpperCase() + this.str.slice(1));
@@ -23,7 +23,7 @@ export class Str {
   /**
    * Lowercase the first character in a string.
    *
-   * @return  {String}
+   * @return  {Str}
    */
   lcfirst () {
     return this.setValue(this.str.charAt(0).toLowerCase() + this.str.slice(1));
@@ -47,7 +47,7 @@ export class Str {
    * @param   {Number}  [limit=100]  The limit
    * @param   {String}  [end=…]    The suffix
    *
-   * @return  {String}
+   * @return  {Str}
    */
   limit (limit = 100, end = '…') {
     return this.setValue(this.str.substring(0, limit) + (this.str.length > limit ? end : ''));
@@ -58,7 +58,7 @@ export class Str {
    *
    * @param   {Number}  [length=32]  The length of the generated string
    *
-   * @return  {String}
+   * @return  {Str}
    */
   random (length = 32) {
     let str = '';
@@ -115,7 +115,7 @@ export class Str {
   /**
    * Strip all whitespace from the string.
    *
-   * @return  {String}
+   * @return  {Str}
    */
   strip () {
     return this.setValue(this.str.replace(/\s+/g, ''));
@@ -124,7 +124,7 @@ export class Str {
   /**
    * Convert the string to Title case.
    *
-   * @return  {String}
+   * @return  {Str}
    */
   title () {
     return this.setValue(this.str.toLowerCase().replace(/(?:^|\s)\S/g, s => s.toUpperCase()));
@@ -133,7 +133,7 @@ export class Str {
   /**
    * Convert the string to Studly case.
    *
-   * @return  {String}
+   * @return  {Str}
    */
   studly () {
     return new Str(this.str.replace(/[_-]+/g, ' '))
@@ -144,7 +144,7 @@ export class Str {
   /**
    * Convert the string to Camel case
    *
-   * @return  {String}
+   * @return  {Str}
    */
   camel () {
     if (/^[a-z0-9]+$/i.test(this.str)) {
@@ -159,7 +159,7 @@ export class Str {
    *
    * @param   {String}  [delimeter=_]  The delimeter to insert
    *
-   * @return  {String}
+   * @return  {Str}
    */
   snake (delimeter = '_') {
     if (! this.isLowerCase()) {
@@ -172,7 +172,7 @@ export class Str {
   /**
    * Convert a string to kebab case.
    *
-   * @return  {String}
+   * @return  {Str}
    */
   kebab () {
     return this.snake('-');
@@ -183,7 +183,7 @@ export class Str {
    *
    * @param   {String}  val
    *
-   * @return  {String}
+   * @return  {Str}
    */
   setValue (val) {
     this.str = val instanceof Str ? val.get() : val;
