@@ -82,3 +82,18 @@ test('it should convert a string into kebab case', t => {
   t.is(str('chuckHerInTheUTE').kebab().get(), 'chuck-her-in-the-u-t-e');
   t.is(str('chuckherintheute').kebab().get(), 'chuckherintheute');
 });
+
+test('it should chain methods', t => {
+  const s1 = str('lorem ipsum dolor sit amet')
+    .title()
+    .limit(10)
+    .get();
+
+    const s2 = str('lorem ipsum dolor sit amet')
+      .camel()
+      .limit(10)
+      .endsWith('loremIpsum…');
+
+  t.is(s1, 'Lorem Ipsu…');
+  t.true(s2);
+});
