@@ -5,15 +5,6 @@ export class Str {
   }
 
   /**
-   * Capitalize all words in a string.
-   *
-   * @return  {String}
-   */
-  capitalize () {
-    return this.setValue(this.str.replace(/(?:^|\s)\S/g, s => s.toUpperCase()));
-  }
-
-  /**
    * Capitalize the first character in a string.
    *
    * @return  {String}
@@ -124,13 +115,22 @@ export class Str {
   }
 
   /**
+   * Convert the string to Title case.
+   *
+   * @return  {String}
+   */
+  title () {
+    return this.setValue(this.str.toLowerCase().replace(/(?:^|\s)\S/g, s => s.toUpperCase()));
+  }
+
+  /**
    * Convert the string to Studly case.
    *
    * @return  {String}
    */
   studly () {
     return new Str(this.str.replace(/[_-]+/g, ' '))
-      .capitalize()
+      .title()
       .strip();
   }
 
@@ -140,6 +140,10 @@ export class Str {
    * @return  {String}
    */
   camel () {
+    if (/^[a-z0-9]+$/i.test(this.str)) {
+      return this;
+    }
+
     return this.studly().lcfirst();
   }
 

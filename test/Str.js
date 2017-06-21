@@ -1,9 +1,9 @@
 import test from 'ava';
 import { str } from '../src';
 
-test('it should captialize all words in a string', t => {
-  t.is(str('foo bar baz!').capitalize().get(), 'Foo Bar Baz!');
-  t.is(str('lorem ipsum dolor sit ameT').capitalize().get(), 'Lorem Ipsum Dolor Sit AmeT');
+test('it should convert a string into title case', t => {
+  t.is(str('foo bar baz!').title().get(), 'Foo Bar Baz!');
+  t.is(str('lorem ipsum DoloR sit ameT').title().get(), 'Lorem Ipsum Dolor Sit Amet');
 });
 
 test('it should captialize the first letter in a string', t => {
@@ -65,7 +65,8 @@ test('it should convert a string into studly case', t => {
   t.is(str('chuck_her_in_the_u_t_e').studly().get(), 'ChuckHerInTheUTE');
   t.is(str('chuck  -_-  her  -_-  in  -_-  the  -_-  ute').studly().get(), 'ChuckHerInTheUte');
   t.is(str('tymon_designs').studly().get(), 'TymonDesigns');
-  t.is(str('tymondesigns').studly().get(), 'Tymondesigns');
+  t.is(str('tymon designs').studly().get(), 'TymonDesigns');
+  t.is(str('tymonDesigns').studly().get(), 'Tymondesigns');
 });
 
 test('it should convert a string into camel case', t => {
