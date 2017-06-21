@@ -89,10 +89,10 @@ test('it should chain methods', t => {
     .limit(10)
     .get();
 
-    const s2 = str('lorem ipsum dolor sit amet')
-      .camel()
-      .limit(10)
-      .endsWith('loremIpsum…');
+  const s2 = str('lorem ipsum dolor sit amet')
+    .camel()
+    .limit(10)
+    .endsWith('loremIpsum…');
 
   t.is(s1, 'Lorem Ipsu…');
   t.true(s2);
