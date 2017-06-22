@@ -163,7 +163,9 @@ export class Str {
    */
   snake (delimeter = '_') {
     if (! this.isLowerCase()) {
-      return new Str(this.str.replace(/([A-Z])/g, `${delimeter}$1`).toLowerCase()).strip();
+      return new Str(this.str.replace(/([A-Z])/g, (s) => {
+        return this.str.charAt(0) === s ? s : `${delimeter}${s}`;
+      }).toLowerCase()).strip();
     }
 
     return this;

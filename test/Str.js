@@ -77,6 +77,11 @@ test('it should convert a string into camel case', t => {
   t.is(str('tymonDesigns').camel().get(), 'tymonDesigns');
 });
 
+test('it should convert a string into snake case', t => {
+  t.is(str('LoremIpsumDolorSitAmet').snake().get(), 'lorem_ipsum_dolor_sit_amet');
+  t.is(str('LoremIpsumDolorSitAmet').snake('__').get(), 'lorem__ipsum__dolor__sit__amet');
+});
+
 test('it should convert a string into kebab case', t => {
   t.is(str(' chuckHerInTheUte ').kebab().get(), 'chuck-her-in-the-ute');
   t.is(str('chuckHerInTheUTE').kebab().get(), 'chuck-her-in-the-u-t-e');
