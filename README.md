@@ -80,3 +80,16 @@ import { str } from 'str';
 str('LoremIpsumDolorSitAmet').snake().get();
 // = 'lorem_ipsum_dolor_sit_amet'
 ```
+
+## kebab
+Convert the string to kebab case - Which is similar to snake case but with dashes.
+
+##### Method signature
+`kebab()`
+
+```js
+import { str } from 'str';
+
+str('LoremIpsumDolorSitAmet').kebab().get();
+// = 'lorem-ipsum-dolor-sit-amet'
+```
