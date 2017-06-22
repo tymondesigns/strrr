@@ -93,3 +93,105 @@ import { str } from 'str';
 str('LoremIpsumDolorSitAmet').kebab().get();
 // = 'lorem-ipsum-dolor-sit-amet'
 ```
+
+## ucfirst
+Capitalize the first character in a string.
+
+##### Method signature
+`ucfirst()`
+
+```js
+import { str } from 'str';
+
+str('foo bar').ucfirst().get(); // = 'Foo bar'
+```
+
+## lcfirst
+lower case the first character in a string.
+
+##### Method signature
+`lcfirst()`
+
+```js
+import { str } from 'str';
+
+str('Lorem ipsum').lcfirst().get(); // = 'lorem ipsum'
+```
+
+## contains
+Determine if a given string contains a given string.
+
+##### Method signature
+`contains(val, position = 0)`
+
+```js
+import { str } from 'str';
+
+str('foobarbaz').contains('bar'); // = true
+str('foobarbaz').contains('bob'); // = false
+```
+
+## startsWith
+Determine if a given string starts with a given string.
+
+##### Method signature
+`startsWith(val, position = 0)`
+
+```js
+import { str } from 'str';
+
+str('Lorem ipsum dolor sit amet').startsWith('Lorem') // = true
+str('Lorem ipsum dolor sit amet').startsWith('ipsum') // = false
+```
+
+## endsWith
+Determine if a given string ends with a given string.
+
+##### Method signature
+`endsWith(val, position = 0)`
+
+```js
+import { str } from 'str';
+
+str('Lorem ipsum dolor sit amet').endsWith('amet'); // = true
+str('Lorem ipsum dolor sit amet').endsWith('ipsum'); // = false
+```
+
+## isLowerCase
+Determine if the string is lowercase.
+
+##### Method signature
+`isLowerCase()`
+
+```js
+import { str } from 'str';
+
+str('lorem ipsum dolor sit amet').isLowerCase(); // = true
+str('Lorem ipsum dolor sit amet').isLowerCase(); // = false
+```
+
+## isUpperCase
+Determine if the string is uppercase.
+
+##### Method signature
+`isUpperCase()`
+
+```js
+import { str } from 'str';
+
+str('LORUM').isUpperCase(); // = true
+str('LoRuM').isUpperCase(); // = false
+```
+
+## strip
+Strip all whitespace from a string.
+
+##### Method signature
+`strip()`
+
+```js
+import { str } from 'str';
+
+str(' Lorem ipsum dolor sit amet  ').strip().get()
+// = 'Loremipsumdolorsitamet'
+```
