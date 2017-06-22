@@ -1,5 +1,5 @@
 # str
-Functional string utilities
+Functional string utilities, inspired by Laravel's `Str` helpers.
 
 
 ## limit

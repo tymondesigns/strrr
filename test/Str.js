@@ -1,5 +1,5 @@
 import test from 'ava';
-import { str } from '../src';
+import { Str, str, random } from '../src';
 
 test('it should captialize the first letter in a string', t => {
   t.is(str('foo bar baz!').ucfirst().get(), 'Foo bar baz!');
@@ -24,9 +24,9 @@ test('it should limit a string', t => {
 });
 
 test('it should generate a random string', t => {
-  t.true(typeof str().random().get() === 'string');
-  t.is(str().random(16).length, 16);
-  t.is(str().random().length, 32);
+  t.true(typeof Str.random().get() === 'string');
+  t.is(random(16).length, 16);
+  t.is(Str.random().length, 32);
 });
 
 test('it should check if a string starts with a string', t => {

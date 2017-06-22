@@ -54,23 +54,6 @@ export class Str {
   }
 
   /**
-   * Generate a "random" alpha-numeric string.
-   *
-   * @param   {Number}  [length=32]  The length of the generated string
-   *
-   * @return  {Str}
-   */
-  random (length = 32) {
-    let str = '';
-    while (str.length < length && length > 0) {
-      let r = Math.random();
-      str += (r < 0.1 ? Math.floor(r * 100) : String.fromCharCode(Math.floor(r * 26) + (r > 0.5 ? 97 : 65)));
-    }
-
-    return this.setValue(str);
-  }
-
-  /**
    * Determine if the string starts with a given substring.
    *
    * @param   {String}   val           The string to check start
@@ -178,6 +161,23 @@ export class Str {
    */
   kebab () {
     return this.snake('-');
+  }
+
+  /**
+   * Generate a "random" alpha-numeric string.
+   *
+   * @param   {Number}  [length=32]  The length of the generated string
+   *
+   * @return  {Str}
+   */
+  static random (length = 32) {
+    let str = '';
+    while (str.length < length && length > 0) {
+      let r = Math.random();
+      str += (r < 0.1 ? Math.floor(r * 100) : String.fromCharCode(Math.floor(r * 26) + (r > 0.5 ? 97 : 65)));
+    }
+
+    return new Str(str);
   }
 
   /**
