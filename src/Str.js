@@ -1,3 +1,5 @@
+import charMap from './charMap';
+
 export class Str {
 
   /**
@@ -17,7 +19,7 @@ export class Str {
    * @return  {Str}
    */
   ucfirst () {
-    return this.setValue(this.str.charAt(0).toUpperCase() + this.str.slice(1));
+    return this.setValue(this.str.charAt(0).toLocaleUpperCase() + this.str.slice(1));
   }
 
   /**
@@ -26,7 +28,7 @@ export class Str {
    * @return  {Str}
    */
   lcfirst () {
-    return this.setValue(this.str.charAt(0).toLowerCase() + this.str.slice(1));
+    return this.setValue(this.str.charAt(0).toLocaleLowerCase() + this.str.slice(1));
   }
 
   /**
@@ -51,6 +53,13 @@ export class Str {
    */
   limit (limit = 100, end = '…') {
     return this.setValue(this.str.substring(0, limit) + (this.str.length > limit ? end : ''));
+  }
+
+  words (words = 100, end = '…') {
+    return this.setValue(
+      // this.str.split(' ').splice(0, words).join(' ') + end
+      // this.str.replace(new RegExp('(\\w+\\s){' + words + '}', 'g'), "$1" + end)
+    );
   }
 
   /**
@@ -161,6 +170,51 @@ export class Str {
    */
   kebab () {
     return this.snake('-');
+  }
+
+  /**
+   * Transliterate a UTF-8 value to ASCII.
+   *
+   * @return  {Str}
+   */
+  ascii () {
+    for (let char in charMap) {
+      charMap[char].forEach(c => this.str = this.str.replace(c, char));
+    }
+
+    return this;
+  }
+
+  /**
+   * Generate a URL friendly "slug" from a given string.
+   *
+   * @param   {String}  [separator='-']
+   *
+   * @return  {Str}
+   */
+  slug (separator = '-') {
+    return this.setValue(
+      this.ascii().chain((str) => {
+        return str
+          .replace(new RegExp(separator === '-' ? '_' : '-', 'g'), separator)
+          .replace(/\s+/g, separator)
+          .replace(/[^\w\-]+/g, '')
+          .toLowerCase();
+      }).strip()
+    );
+  }
+
+  /**
+   * Continue the chain with the ability to mutate the string.
+   *
+   * @param   {Function}  callback
+   *
+   * @return  {Str}
+   */
+  chain (callback) {
+    this.str = callback(this.str);
+
+    return this;
   }
 
   /**

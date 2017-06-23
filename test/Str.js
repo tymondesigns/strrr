@@ -4,6 +4,7 @@ import { Str, str, random } from '../src';
 test('it should captialize the first letter in a string', t => {
   t.is(str('foo bar baz!').ucfirst().get(), 'Foo bar baz!');
   t.is(str('foobarbaz').ucfirst().get(), 'Foobarbaz');
+  t.is(str('мама мыла раму').ucfirst().get(), 'Мама мыла раму');
 });
 
 test('it should lower case the first letter in a string', t => {
@@ -22,6 +23,11 @@ test('it should limit a string', t => {
   t.is(str('Lorem ipsum dolor sit amet').limit(10, '***').get(), 'Lorem ipsu***');
   t.is(str('Lorem ipsum dolor sit amet').limit(100).get(), 'Lorem ipsum dolor sit amet');
 });
+
+// test('it should limit a string by words', t => {
+//   t.is(str('Lorem ipsum dolor sit amet').words(3).get(), 'Lorem ipsum dolor…');
+//   t.is(str('Lorem ipsum dolor sit amet').words(10).get(), 'Lorem ipsum dolor sit amet');
+// });
 
 test('it should generate a random string', t => {
   t.true(typeof Str.random().get() === 'string');
@@ -88,6 +94,19 @@ test('it should convert a string into kebab case', t => {
   t.is(str('chuckherintheute').kebab().get(), 'chuckherintheute');
 });
 
+test('it should convert a utf string into ascii', t => {
+  t.is(str('@ðẻ-₀ფف').ascii().get(), 'atde-0ff');
+  t.is(str('I ♥ javascript').ascii().get(), 'I love javascript');
+});
+
+test('it should slugify a string', t => {
+  t.is(str('FOO bar baz').slug().get(), 'foo-bar-baz');
+  t.is(str('foo-bar-baz').slug().get(), 'foo-bar-baz');
+  t.is(str('foo_bar_baz').slug().get(), 'foo-bar-baz');
+  t.is(str('foo_bar_baz').slug('_').get(), 'foo_bar_baz');
+  t.is(str('I ♥ javascript').slug().get(), 'i-love-javascript');
+});
+
 test('it should chain methods', t => {
   const s1 = str('lorem ipsum dolor sit amet')
     .title()
@@ -99,6 +118,13 @@ test('it should chain methods', t => {
     .limit(13)
     .endsWith('loremIpsumDol…');
 
+  const s3 = str('lorem ipsum dolor sit amet')
+    .title()
+    .chain(s => s.toLowerCase())
+    .limit(10)
+    .get();
+
   t.is(s1, 'Lorem Ipsu…');
+  t.is(s3, 'lorem ipsu…');
   t.true(s2);
 });

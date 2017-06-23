@@ -1,7 +1,7 @@
 {
   "name": "str",
   "version": "0.0.1",
-  "description": "string utilities",
+  "description": "Functional string utilities",
   "main": "src/index.js",
   "repository": "git@github.com:tymondesigns/str.git",
   "author": "Sean Tymon <tymon148@gmail.com>",

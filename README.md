@@ -195,3 +195,29 @@ import { str } from 'str';
 str(' Lorem ipsum dolor sit amet  ').strip().get()
 // = 'Loremipsumdolorsitamet'
 ```
+
+## ascii
+Transliterate a UTF-8 value to ASCII.
+
+##### Method signature
+`ascii()`
+
+```js
+import { str } from 'str';
+
+str('I ♥ javascript').ascii().get() // = 'I love javascript'
+str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
+```
+
+## slug
+Generate a URL friendly "slug" from the string.
+
+##### Method signature
+`slug(separator = '-')`
+
+```js
+import { str } from 'str';
+
+str('FOO bar baz').slug().get() // = 'foo-bar-baz'
+str('I ♥ javascript').slug('_').get() // = 'i_love_javascript'
+```
