@@ -58,7 +58,7 @@ export class Str {
   /**
    * Limit the number of words in a string.
    *
-   * @param   {Number}  [limit=100]  The limit
+   * @param   {Number}  [words=100]  The words
    * @param   {String}  [end=…]    The suffix
    *
    * @return  {Str}
