@@ -24,10 +24,11 @@ test('it should limit a string', t => {
   t.is(str('Lorem ipsum dolor sit amet').limit(100).get(), 'Lorem ipsum dolor sit amet');
 });
 
-// test('it should limit a string by words', t => {
-//   t.is(str('Lorem ipsum dolor sit amet').words(3).get(), 'Lorem ipsum dolor…');
-//   t.is(str('Lorem ipsum dolor sit amet').words(10).get(), 'Lorem ipsum dolor sit amet');
-// });
+test('it should limit a string by words', t => {
+  t.is(str('Lorem ipsum dolor sit amet').words(3).get(), 'Lorem ipsum dolor…');
+  t.is(str('Lorem ipsum dolor sit amet').words(10).get(), 'Lorem ipsum dolor sit amet');
+  t.is(str('Lorem ipsum dolor sit amet, consectetur adipiscing elit').words(7).get(), 'Lorem ipsum dolor sit amet, consectetur adipiscing…');
+});
 
 test('it should generate a random string', t => {
   t.true(typeof Str.random().get() === 'string');

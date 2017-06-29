@@ -56,8 +56,10 @@ export class Str {
   }
 
   words (words = 100, end = '…') {
+    end = this.str.split(' ').length > words ? end : '';
+
     return this.setValue(
-      // this.str.split(' ').splice(0, words).join(' ') + end
+      this.str.split(' ').splice(0, words).join(' ') + end
       // this.str.replace(new RegExp('(\\w+\\s){' + words + '}', 'g'), "$1" + end)
     );
   }
