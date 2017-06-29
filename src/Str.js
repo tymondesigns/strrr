@@ -55,10 +55,19 @@ export class Str {
     return this.setValue(this.str.substring(0, limit) + (this.str.length > limit ? end : ''));
   }
 
+  /**
+   * Limit the number of words in a string.
+   *
+   * @param   {Number}  [words=100]  The words
+   * @param   {String}  [end=…]    The suffix
+   *
+   * @return  {Str}
+   */
   words (words = 100, end = '…') {
+    end = this.str.split(' ').length > words ? end : '';
+
     return this.setValue(
-      // this.str.split(' ').splice(0, words).join(' ') + end
-      // this.str.replace(new RegExp('(\\w+\\s){' + words + '}', 'g'), "$1" + end)
+      this.str.split(' ').splice(0, words).join(' ') + end
     );
   }
 

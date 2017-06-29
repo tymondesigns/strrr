@@ -3,7 +3,7 @@ Functional string utilities, inspired by Laravel's `Str` helpers.
 
 
 ## limit
-Limit a string Limit a string to a given length with a suffix (ellipsis).
+Limit a string to a given length with a suffix (ellipsis).
 
 ##### Method signature
 `limit(limit = 100, end = '…');`
@@ -13,6 +13,19 @@ import { str } from 'str';
 
 str('lorem ipsum dolor sit amet').limit(20).get();
 // = 'Lorem ipsum dolor si…'
+```
+
+## words
+Limit the number of words in a string with a suffix (ellipsis).
+
+##### Method signature
+`words(words = 100, end = '…');`
+
+```js
+import { str } from 'str';
+
+str('lorem ipsum dolor sit amet').words(3).get();
+// = 'Lorem ipsum dolor…'
 ```
 
 ## random
