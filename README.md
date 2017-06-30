@@ -15,6 +15,8 @@ yarn add strrr
 chainability built in. e.g.
 
 ```js
+import { str } from 'strrr';
+
 str('lorem ipsum dolor sit amet')
   .title()
   .limit(10)
