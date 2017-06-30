@@ -1,8 +1,27 @@
 # str
 Functional string utilities, inspired by Laravel's `Str` helpers.
 
+## Installation
 
-## limit
+```bash
+yarn add strrr
+```
+
+## Usage
+
+chainability built in. e.g.
+
+```js
+str('lorem ipsum dolor sit amet')
+  .title()
+  .limit(10)
+  .chain(s => doSomething(s))
+  .get();
+
+// = 'Lorem Ipsu…'
+```
+
+### limit
 Limit a string to a given length with a suffix (ellipsis).
 
 ##### Method signature
@@ -15,7 +34,7 @@ str('lorem ipsum dolor sit amet').limit(20).get();
 // = 'Lorem ipsum dolor si…'
 ```
 
-## words
+### words
 Limit the number of words in a string with a suffix (ellipsis).
 
 ##### Method signature
@@ -28,7 +47,7 @@ str('lorem ipsum dolor sit amet').words(3).get();
 // = 'Lorem ipsum dolor…'
 ```
 
-## random
+### random
 Generate a "random" alpha-numeric string.
 
 ##### Method signature
@@ -41,7 +60,7 @@ random().get(); // = 'nKusDo5JIFrI1tJswwzpEyGLpvML1Mxp'
 random(16).get(); // = 'Ky6zJuGnGyrnvw1y'
 ```
 
-## title
+### title
 Convert the string to Title case.
 
 ##### Method signature
@@ -54,7 +73,7 @@ str('lorem ipsum dolor sit amet').title().get();
 // = 'Lorem Ipsum Dolor Sit Amet'
 ```
 
-## studly
+### studly
 Convert the string to Studly case.
 Also known as [pascal case](https://en.wikipedia.org/wiki/PascalCase)
 
@@ -68,7 +87,7 @@ str('lorem_ipsum_dolor_sit_amet').studly().get();
 // = 'LoremIpsumDolorSitAmet'
 ```
 
-## camel
+### camel
 Convert the string to [camel case](https://en.wikipedia.org/wiki/Camel_case)
 
 ##### Method signature
@@ -81,7 +100,7 @@ str('lorem_ipsum_dolor_sit_amet').camel().get();
 // = 'loremIpsumDolorSitAmet'
 ```
 
-## snake
+### snake
 Convert the string to [snake case](https://en.wikipedia.org/wiki/Snake_case)
 
 ##### Method signature
@@ -94,7 +113,7 @@ str('LoremIpsumDolorSitAmet').snake().get();
 // = 'lorem_ipsum_dolor_sit_amet'
 ```
 
-## kebab
+### kebab
 Convert the string to kebab case - Which is similar to snake case but with dashes.
 
 ##### Method signature
@@ -107,7 +126,7 @@ str('LoremIpsumDolorSitAmet').kebab().get();
 // = 'lorem-ipsum-dolor-sit-amet'
 ```
 
-## ucfirst
+### ucfirst
 Capitalize the first character in a string.
 
 ##### Method signature
@@ -119,7 +138,7 @@ import { str } from 'str';
 str('foo bar').ucfirst().get(); // = 'Foo bar'
 ```
 
-## lcfirst
+### lcfirst
 lower case the first character in a string.
 
 ##### Method signature
@@ -131,7 +150,7 @@ import { str } from 'str';
 str('Lorem ipsum').lcfirst().get(); // = 'lorem ipsum'
 ```
 
-## contains
+### contains
 Determine if a given string contains a given string.
 
 ##### Method signature
@@ -144,7 +163,7 @@ str('foobarbaz').contains('bar'); // = true
 str('foobarbaz').contains('bob'); // = false
 ```
 
-## startsWith
+### startsWith
 Determine if a given string starts with a given string.
 
 ##### Method signature
@@ -157,7 +176,7 @@ str('Lorem ipsum dolor sit amet').startsWith('Lorem') // = true
 str('Lorem ipsum dolor sit amet').startsWith('ipsum') // = false
 ```
 
-## endsWith
+### endsWith
 Determine if a given string ends with a given string.
 
 ##### Method signature
@@ -170,7 +189,7 @@ str('Lorem ipsum dolor sit amet').endsWith('amet'); // = true
 str('Lorem ipsum dolor sit amet').endsWith('ipsum'); // = false
 ```
 
-## isLowerCase
+### isLowerCase
 Determine if the string is lowercase.
 
 ##### Method signature
@@ -183,7 +202,7 @@ str('lorem ipsum dolor sit amet').isLowerCase(); // = true
 str('Lorem ipsum dolor sit amet').isLowerCase(); // = false
 ```
 
-## isUpperCase
+### isUpperCase
 Determine if the string is uppercase.
 
 ##### Method signature
@@ -196,7 +215,7 @@ str('LORUM').isUpperCase(); // = true
 str('LoRuM').isUpperCase(); // = false
 ```
 
-## strip
+### strip
 Strip all whitespace from a string.
 
 ##### Method signature
@@ -209,7 +228,7 @@ str(' Lorem ipsum dolor sit amet  ').strip().get()
 // = 'Loremipsumdolorsitamet'
 ```
 
-## ascii
+### ascii
 Transliterate a UTF-8 value to ASCII.
 
 ##### Method signature
@@ -222,7 +241,7 @@ str('I ♥ javascript').ascii().get() // = 'I love javascript'
 str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
 ```
 
-## slug
+### slug
 Generate a URL friendly "slug" from the string.
 
 ##### Method signature
