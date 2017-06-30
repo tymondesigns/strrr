@@ -30,7 +30,7 @@ Limit a string to a given length with a suffix (ellipsis).
 `limit(limit = 100, end = '…');`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('lorem ipsum dolor sit amet').limit(20).get();
 // = 'Lorem ipsum dolor si…'
@@ -43,7 +43,7 @@ Limit the number of words in a string with a suffix (ellipsis).
 `words(words = 100, end = '…');`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('lorem ipsum dolor sit amet').words(3).get();
 // = 'Lorem ipsum dolor…'
@@ -56,7 +56,7 @@ Generate a "random" alpha-numeric string.
 `random(length = 32)`
 
 ```js
-import { random } from 'str';
+import { random } from 'strrr';
 
 random().get(); // = 'nKusDo5JIFrI1tJswwzpEyGLpvML1Mxp'
 random(16).get(); // = 'Ky6zJuGnGyrnvw1y'
@@ -69,7 +69,7 @@ Convert the string to Title case.
 `title()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('lorem ipsum dolor sit amet').title().get();
 // = 'Lorem Ipsum Dolor Sit Amet'
@@ -83,7 +83,7 @@ Also known as [pascal case](https://en.wikipedia.org/wiki/PascalCase)
 `studly()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('lorem_ipsum_dolor_sit_amet').studly().get();
 // = 'LoremIpsumDolorSitAmet'
@@ -96,7 +96,7 @@ Convert the string to [camel case](https://en.wikipedia.org/wiki/Camel_case)
 `camel()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('lorem_ipsum_dolor_sit_amet').camel().get();
 // = 'loremIpsumDolorSitAmet'
@@ -109,7 +109,7 @@ Convert the string to [snake case](https://en.wikipedia.org/wiki/Snake_case)
 `snake(delimeter = '_')`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('LoremIpsumDolorSitAmet').snake().get();
 // = 'lorem_ipsum_dolor_sit_amet'
@@ -122,7 +122,7 @@ Convert the string to kebab case - Which is similar to snake case but with dashe
 `kebab()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('LoremIpsumDolorSitAmet').kebab().get();
 // = 'lorem-ipsum-dolor-sit-amet'
@@ -135,7 +135,7 @@ Capitalize the first character in a string.
 `ucfirst()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('foo bar').ucfirst().get(); // = 'Foo bar'
 ```
@@ -147,7 +147,7 @@ lower case the first character in a string.
 `lcfirst()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('Lorem ipsum').lcfirst().get(); // = 'lorem ipsum'
 ```
@@ -159,7 +159,7 @@ Determine if a given string contains a given string.
 `contains(val, position = 0)`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('foobarbaz').contains('bar'); // = true
 str('foobarbaz').contains('bob'); // = false
@@ -172,7 +172,7 @@ Determine if a given string starts with a given string.
 `startsWith(val, position = 0)`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('Lorem ipsum dolor sit amet').startsWith('Lorem') // = true
 str('Lorem ipsum dolor sit amet').startsWith('ipsum') // = false
@@ -185,7 +185,7 @@ Determine if a given string ends with a given string.
 `endsWith(val, position = 0)`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('Lorem ipsum dolor sit amet').endsWith('amet'); // = true
 str('Lorem ipsum dolor sit amet').endsWith('ipsum'); // = false
@@ -198,7 +198,7 @@ Determine if the string is lowercase.
 `isLowerCase()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('lorem ipsum dolor sit amet').isLowerCase(); // = true
 str('Lorem ipsum dolor sit amet').isLowerCase(); // = false
@@ -211,7 +211,7 @@ Determine if the string is uppercase.
 `isUpperCase()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('LORUM').isUpperCase(); // = true
 str('LoRuM').isUpperCase(); // = false
@@ -224,7 +224,7 @@ Strip all whitespace from a string.
 `strip()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str(' Lorem ipsum dolor sit amet  ').strip().get()
 // = 'Loremipsumdolorsitamet'
@@ -237,7 +237,7 @@ Transliterate a UTF-8 value to ASCII.
 `ascii()`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('I ♥ javascript').ascii().get() // = 'I love javascript'
 str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
@@ -250,7 +250,7 @@ Generate a URL friendly "slug" from the string.
 `slug(separator = '-')`
 
 ```js
-import { str } from 'str';
+import { str } from 'strrr';
 
 str('FOO bar baz').slug().get() // = 'foo-bar-baz'
 str('I ♥ javascript').slug('_').get() // = 'i_love_javascript'
