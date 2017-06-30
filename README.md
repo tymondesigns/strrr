@@ -1,4 +1,4 @@
-# str
+# strrr
 Functional string utilities, inspired by Laravel's `Str` helpers.
 
 ## Installation
