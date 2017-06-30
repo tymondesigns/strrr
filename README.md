@@ -21,6 +21,8 @@ str('lorem ipsum dolor sit amet')
 // = 'Lorem Ipsu…'
 ```
 
+## Available Methods
+
 ### limit
 Limit a string to a given length with a suffix (ellipsis).
 
