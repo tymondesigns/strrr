@@ -2,7 +2,7 @@
 Functional string utilities, inspired by Laravel's `Str` helpers.
 
 [![Travis](https://img.shields.io/travis/tymondesigns/strrr.svg?style=flat-square)](https://travis-ci.org/tymondesigns/strrr)
-[![npm](https://img.shields.io/npm/v/strrr.svg?maxAge=2592000&style=flat-square)](https://www.npmjs.com/package/strrr)
+[![npm](https://img.shields.io/npm/v/strrr.svg?style=flat-square)](https://www.npmjs.com/package/strrr)
 
 ## Installation
 
