@@ -67,6 +67,32 @@ random().get(); // = 'nKusDo5JIFrI1tJswwzpEyGLpvML1Mxp'
 random(16).get(); // = 'Ky6zJuGnGyrnvw1y'
 ```
 
+### ascii
+Transliterate a UTF-8 value to ASCII.
+
+##### Method signature
+`ascii()`
+
+```js
+import { str } from 'strrr';
+
+str('I ♥ javascript').ascii().get() // = 'I love javascript'
+str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
+```
+
+### slug
+Generate a URL friendly "slug" from the string.
+
+##### Method signature
+`slug(separator = '-')`
+
+```js
+import { str } from 'strrr';
+
+str('FOO bar baz').slug().get() // = 'foo-bar-baz'
+str('I ♥ javascript').slug('_').get() // = 'i_love_javascript'
+```
+
 ### title
 Convert the string to Title case.
 
@@ -233,30 +259,4 @@ import { str } from 'strrr';
 
 str(' Lorem ipsum dolor sit amet  ').strip().get()
 // = 'Loremipsumdolorsitamet'
-```
-
-### ascii
-Transliterate a UTF-8 value to ASCII.
-
-##### Method signature
-`ascii()`
-
-```js
-import { str } from 'strrr';
-
-str('I ♥ javascript').ascii().get() // = 'I love javascript'
-str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
-```
-
-### slug
-Generate a URL friendly "slug" from the string.
-
-##### Method signature
-`slug(separator = '-')`
-
-```js
-import { str } from 'strrr';
-
-str('FOO bar baz').slug().get() // = 'foo-bar-baz'
-str('I ♥ javascript').slug('_').get() // = 'i_love_javascript'
 ```
