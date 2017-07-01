@@ -5,7 +5,7 @@ export class Str {
   /**
    * Create the Str instance
    *
-   * @param  {Str} str
+   * @param  {String} str
    *
    * @return {void}
    */
