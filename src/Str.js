@@ -203,7 +203,7 @@ export class Str {
    */
   slug (separator = '-') {
     return this.setValue(
-      this.ascii().chain((str) => {
+      this.ascii().pipe((str) => {
         return str
           .replace(new RegExp(separator === '-' ? '_' : '-', 'g'), separator)
           .replace(/\s+/g, separator)
@@ -220,7 +220,7 @@ export class Str {
    *
    * @return  {Str}
    */
-  chain (callback) {
+  pipe (callback) {
     this.str = callback(this.str);
 
     return this;

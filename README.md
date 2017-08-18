@@ -18,7 +18,7 @@ chainability built in. e.g.
 str('lorem ipsum dolor sit amet')
   .title()
   .limit(10)
-  .chain(s => doSomething(s))
+  .pipe(s => doSomething(s))
   .get();
 
 // = 'Lorem Ipsu…'

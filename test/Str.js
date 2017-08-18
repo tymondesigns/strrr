@@ -121,7 +121,7 @@ test('it should chain methods', t => {
 
   const s3 = str('lorem ipsum dolor sit amet')
     .title()
-    .chain(s => s.toLowerCase())
+    .pipe(s => s.toLowerCase())
     .limit(10)
     .get();
 
