@@ -1,5 +1,5 @@
 # strrr
-Functional string utilities, inspired by Laravel's `Str` helpers.
+Functional string utilities, inspired by Laravel's `Str` helpers. Because why not?
 
 [![Travis](https://img.shields.io/travis/tymondesigns/strrr.svg?style=flat-square)](https://travis-ci.org/tymondesigns/strrr)
 [![npm](https://img.shields.io/npm/v/strrr.svg?style=flat-square)](https://www.npmjs.com/package/strrr)
@@ -15,6 +15,8 @@ yarn add strrr
 chainability built in. e.g.
 
 ```js
+import { str } from 'strrr';
+
 str('lorem ipsum dolor sit amet')
   .title()
   .limit(10)
@@ -63,6 +65,32 @@ import { random } from 'strrr';
 
 random().get(); // = 'nKusDo5JIFrI1tJswwzpEyGLpvML1Mxp'
 random(16).get(); // = 'Ky6zJuGnGyrnvw1y'
+```
+
+### ascii
+Transliterate a UTF-8 value to ASCII.
+
+##### Method signature
+`ascii()`
+
+```js
+import { str } from 'strrr';
+
+str('I ♥ javascript').ascii().get() // = 'I love javascript'
+str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
+```
+
+### slug
+Generate a URL friendly "slug" from the string.
+
+##### Method signature
+`slug(separator = '-')`
+
+```js
+import { str } from 'strrr';
+
+str('FOO bar baz').slug().get() // = 'foo-bar-baz'
+str('I ♥ javascript').slug('_').get() // = 'i_love_javascript'
 ```
 
 ### title
@@ -231,30 +259,4 @@ import { str } from 'strrr';
 
 str(' Lorem ipsum dolor sit amet  ').strip().get()
 // = 'Loremipsumdolorsitamet'
-```
-
-### ascii
-Transliterate a UTF-8 value to ASCII.
-
-##### Method signature
-`ascii()`
-
-```js
-import { str } from 'strrr';
-
-str('I ♥ javascript').ascii().get() // = 'I love javascript'
-str('@ðẻ-₀ფف').ascii().get() // = 'atde-0ff'
-```
-
-### slug
-Generate a URL friendly "slug" from the string.
-
-##### Method signature
-`slug(separator = '-')`
-
-```js
-import { str } from 'strrr';
-
-str('FOO bar baz').slug().get() // = 'foo-bar-baz'
-str('I ♥ javascript').slug('_').get() // = 'i_love_javascript'
 ```
